@@ -2,8 +2,23 @@
 # How-to guides
 
 ```{toctree}
-:maxdepth: 1
+:maxdepth: 2
 
-self
+Install and manage the Terraform Provider for Juju <install-and-manage-terraform-juju>
+Manage credentials <manage-credentials>
+Manage models <manage-models>
+Manage charms or bundles <manage-charms-or-bundles>
+Manage charm resources <manage-charm-resources>
+Manage applications <manage-applications
+Manage relations <manage-relations>
+Manage offers <manage-offers>
+Manage units <manage-units>
+Manage machines <manage-machines>`
+Manage SSH keys <manage-ssh-keys>
+Manage users <manage-users>
+Manage secrets <manage-secrets>
 ```
 
+<!--
+self
+-->

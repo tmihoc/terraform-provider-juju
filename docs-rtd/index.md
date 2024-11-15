@@ -6,9 +6,12 @@
 
 tutorial
 howto/index
+```
+
+<!--
 reference/index
 explanation/index
-```
+-->
 
 **A single sentence that says what the product is, succinctly and memorably.**
 Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
@@ -51,6 +54,7 @@ dolor sit amet consectetur adipiscing elit pellentesque habitant.
 
 ````
 
+<!--
 ````{grid} 1 1 2 2
 :reverse:
 
@@ -69,6 +73,7 @@ dolor sit amet consectetur adipiscing elit pellentesque habitant.
 ```
 
 ````
+-->
 
 ---------
 
