@@ -1,13 +1,13 @@
 (manage-applications)=
 # How to manage applications
 
-> See also: {ref}`Application <application>`
+> See also: [`juju` | Application](https://juju.is/docs/juju/application)
 
 ## Deploy an application
 
 To deploy an application, find and deploy a charm that delivers it.
 
-> See more: {ref}`How to deploy a charm / charm bundle <5476md>`
+> See more: {ref}`deploy-a-charm`
 
 
 ## Set the machine base for an application
@@ -40,7 +40,7 @@ resource "juju_application" "this" {
 
 
 ## Configure an application
-> See also: {ref}`Application configuration <5476md>`
+> See also: [`juju` | Application configuration](https://juju.is/docs/juju/configuration#heading--application-configuration)
 
 To configure an application, in its resource definition add a config map with the key=value pairs you want (from the list of configs available for the charm). 
 
@@ -60,26 +60,27 @@ resource "juju_application" "this" {
 > See more: [`juju_application` (resource)](https://registry.terraform.io/providers/juju/juju/latest/docs/resources/application#schema)
 
 
-
+(scale-an-application)=
 ## Scale an application
 
-> See also: [Scaling <scaling>`
+> See also: [`juju`| Scaling](https://juju.is/docs/juju/scaling)
 
 ### Scale an application vertically
 
 To scale an application vertically, set constraints for the resources that the application's units will be deployed on.
  
-> See more: {ref}`How to manage constraints for an application <5476md>`
+> See more: {ref}`manage-constraints-for-an-application`
 
+(scale-an-application-horizontally)=
 ### Scale an application horizontally
 
 To scale an application horizontally, control the number of units.
 
-> See more: {ref}`How to control the number of units <5476md>`
+> See more: {ref}`control-the-number-of-units`
 
 
 ## Make an application highly available
-> See also: {ref}`High availability <high-availability-ha>`
+> See also: [`juju` | High availability (HA)](https://juju.is/docs/juju/high-availability)
 
 1. Find out if the charm delivering the application supports high availability natively or not. If the latter, find out what you need to do. This could mean integrating with a load balancing reverse proxy, configuring storage etc. 
 
@@ -87,12 +88,12 @@ To scale an application horizontally, control the number of units.
 
 2. Scale up horizontally as usual.
 
-> See more: {ref}`How to scale an application horizontally <5476md>`
+> See more: {ref}`scale-an-application-horizontally`
 
 
 ## Integrate an application with another application
 
-> See more: {ref}`How to manage relations <how-to-manage-relations>`
+> See more: {ref}`manage-relations`
 
 
 ## Manage an application’s public availability over the network
@@ -139,10 +140,10 @@ resource "juju_application" "this" {
 **Unexpose.** To unexpose an application, remove the `expose` attribute from its resource definition.
 
 
-
+(manage-constraints-for-an-application)=
 ## Manage constraints for an application
 
-> See also: [Constraint <constraint>`
+> See also: [`juju` | Constraint](https://juju.is/docs/juju/constraint)
 
 
 To set constraints for an application, in its resource definition specify a `constraints` attribute followed by a quotes-enclosed, space-separated list of key=value pairs. For example:
@@ -166,12 +167,12 @@ resource "juju_application" "this" {
 
 ## Change space bindings for an application
 
-> See also: [Binding <binding>`
+> See also: [`juju` | Binding](https://juju.is/docs/juju/binding)
 
 
 To set space bindings for an application, in its resource definition specify an `endpoint_bindings` with a `space` key, to set a default for the entire application, and/or a `space` and an `endpoint` key, to set the space binding for a particular application endpoint. For example, below all the application's endpoints are bound to the `public` space except for the `juju-info` endpoint, which will be bound to the `private` space:
 
-```text
+```terraform
 resource "juju_application" "application_three" {
   model = resource.juju_model.testmodel.name
   charm {
@@ -198,11 +199,12 @@ resource "juju_application" "application_three" {
 
 To upgrade an application, update its charm. 
 
-> See more: [How to update a charm <5476md>`
+> See more: {ref}`update-a-charm`
 
-
+(remove-an-application)=
 ## Remove an application
-> See also: {ref}`Removing things <removing-things>`
+
+> See also: [`juju` | Removing things](https://juju.is/docs/juju/removing-things)
 
 
 To remove an application, remove its resource definition from your Terraform plan.

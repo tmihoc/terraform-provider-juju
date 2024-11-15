@@ -317,3 +317,4 @@ with open(".sphinx/latex_elements_template.txt", "rt") as file:
     latex_config = file.read()
 
 latex_elements = ast.literal_eval(latex_config.replace("$PROJECT", project))
+

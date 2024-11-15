@@ -1,7 +1,7 @@
 (manage-relations)=
 # How to manage relations
 
-> See also: {ref}`Relation (integration) <relation-integration>`
+> See also: [`juju` | Relation](https://juju.is/docs/juju/relation)
 
 ## Add a relation
 
@@ -67,12 +67,10 @@ resource "juju_integration" "this" {
 
 
 ### Add a cross-model relation
-> See also: [Cross-model relation <1073md>`
-
 
 In a cross-model relation there is also an 'offering' model and a 'consuming' model. The admin of the 'offering' model 'offers' an application for consumption outside of the model and grants an external user access to it. The user on the 'consuming' model can then find an offer to use, consume the offer, and integrate an application on their model with the 'offer' via the same `integrate` command as in the same-model case (just that the offer must be specified in terms of its offer URL or its consume alias). This creates a local proxy for the offer in the consuming model, and the application is subsequently treated as any other application in the model.
 
-> See more: {ref}`How to manage offers > Integrate with an offer <1073md>`
+> See more: {ref}`integrate-with-an-offer`
 
 
 

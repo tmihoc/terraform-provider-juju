@@ -1,20 +1,15 @@
 (manage-credentials)=
 # How to manage credentials
 
-> See also: {ref}`Credential <credential>`
-
-This document shows how to manage credentials in Juju.
+> See also: [Credential](https://juju.is/docs/juju/credential)
 
 
-## Add a credential
+## Define a credential
 
-> See also: {ref}`Credential definition <1112md>`, {ref}`List of supported clouds > \<cloud name\> > CREDENTIAL <list-of-supported-clouds>`
-
-
-To add a credential, in your Terraform plan create a resource of the `juju_credential` type, specifying the credential's name, cloud, authentication type, and the attributes associated with the authentication type.
+To define a credential, in your Terraform plan create a resource of the `juju_credential` type, specifying the credential's name, cloud, authentication type, and the attributes associated with the authentication type.
 
 
-```text
+```terraform
 resource "juju_credential" "this" {
   name = "creddev"
 
@@ -40,7 +35,7 @@ resource "juju_credential" "this" {
 
 To add a controller credential to a model, in your Terraform plan, specify it as an attribute to the model definition. For example:
 
-```text
+```terraform
 resource "juju_model" "this" {
   name = "development"
 

@@ -17,9 +17,9 @@ Imagine your business needs a chat service such as Mattermost backed up by a dat
 - A workstation, e.g., a laptop, that has sufficient resources to launch a virtual machine with 4 CPUs, 8 GB RAM, and 50 GB disk space.
 
 **What you'll do:**
-- Set up an isolated test environment with Multipass and the `charm-dev` blueprint, which will provide all the necessary tools and configuration for the tutorial (a localhost machine cloud and Kubernetes cloud, Juju, etc.). *Note: The tutorial focuses on Juju charm deployment, making how to bootstrap a Juju controller on a specific cloud out-of-scope.*
+- Set up an isolated test environment with Multipass and the `charm-dev` blueprint, which will provide all the necessary tools and configuration for the tutorial (a localhost machine cloud and Kubernetes cloud, Juju, etc.).
 
-- Plan, deploy, and maintain a chat service based on Mattermost and backed by PostgreSQL on a local Kubernetes cloud with Juju.
+- Plan, then deploy, configure, and scale a chat service based on Mattermost and backed by PostgreSQL on a local Kubernetes cloud with Juju.
 ----------
 
 ## Set up an isolated test environment
@@ -32,7 +32,7 @@ Imagine your business needs a chat service such as Mattermost backed up by a dat
 
 Follow the instructions for the `juju` CLI.
 
-> See more: [`juju` tutorial](...)
+> See more: [`juju` | Tutorial > Set things up](https://juju.is/docs/juju/tutorial#set-up-an-isolated-test-environment)
 
 In addition to that, on your local workstation, create a directory called `terraform-juju`, then use Multipass to mount it to your Multipass VM. For example, on Linux:
 
@@ -54,23 +54,23 @@ In this tutorial your goal is to set up a chat service on a cloud.
 
 First, decide which cloud (i.e., anything that provides storage, compute, and networking) you want to use. Juju supports a long list of clouds; in this tutorial we will use a low-ops, minimal production Kubernetes called 'MicroK8s'. In a terminal, open a shell into your VM and verify that you already have MicroK8s installed (`microk8s version`). 
 
-> See more: [Cloud <cloud-substrate>`, {ref}`List of supported clouds <list-of-supported-clouds>`, {ref}`The MicroK8s cloud and Juju <the-microk8s-cloud-and-juju>`, {ref}`Set up your test environment automatically > steps 3-4 <6559md>` 
+> See more: [`juju` | Cloud](https://juju.is/docs/juju/cloud), [`juju` | List of supported clouds](https://juju.is/docs/juju/juju-supported-clouds), [The MicroK8s cloud and Juju](https://juju.is/docs/juju/microk8s), [How to set up your test environment automatically > steps 3-4](https://juju.is/docs/juju/set-up--tear-down-your-test-environment#set-up-tear-down-automatically) 
 
 
 Next, decide which charms (i.e., software operators) you want to use. Charmhub provides a large collection. For this tutorial we will use `mattermost-k8s`  for the chat service,  `postgresql-k8s` for its backing database, and `self-signed-certificates` to TLS-encrypt traffic from PostgreSQL.
 
 
-> See more: {ref}`Charm <charm>`, [Charmhub](https://charmhub.io/), Charmhub | [`mattermost-k8s`](https://charmhub.io/mattermost-k8s), [`postgresql-k8s`](https://charmhub.io/postgresql-k8s), [`self-signed-certificates`](https://charmhub.io/self-signed-certificates)
+> See more: [`juju` | Charm](https://juju.is/docs/juju/charmed-operator), [Charmhub](https://charmhub.io/), Charmhub | [`mattermost-k8s`](https://charmhub.io/mattermost-k8s), [`postgresql-k8s`](https://charmhub.io/postgresql-k8s), [`self-signed-certificates`](https://charmhub.io/self-signed-certificates)
 
 
-## Deploy
+## Deploy, configure, integrate
 
 
 You will need to install a Juju client; on the client, add your cloud and cloud credentials; on the cloud, bootstrap a controller (i.e., control plan); on the controller, add a model (i.e., canvas to deploy things on; namespace); on the model, deploy, configure, and integrate the charms that make up your chat service. 
 
 `terraform-provider-juju` is not self-sufficient -- follow the instructions for the `juju` CLI all the way up to and including the step where you create the  `34microk8s` controller. Also get the details of that controller: `juju show-controller --show-password 34microk8s`. 
 
-> See more:[`juju` tutorial](...)
+> See more: [`juju` | Tutorial > Deploy](https://juju.is/docs/juju/tutorial#deploy)
 
 Then, on your VM, install the `terraform` CLI:
 
@@ -251,13 +251,11 @@ Congratulations, your chat service is up and running!
 
 
 
-> See more: {ref}`Set up your test environment automatically > steps 3-4 <6559md>`, {ref}`Install and manage the client <how-to-install-and-manage-the-client>`, {ref}`Manage clouds <how-to-manage-clouds>`, {ref}`Manage credentials <how-to-manage-credentials>`, {ref}`Manage controllers <how-to-manage-controllers>`, {ref}`Manage models <how-to-manage-models>`, {ref}`Manage applications <how-to-manage-applications>`
+> See more: [`juju` | How to set up your test environment automatically > steps 3-4](https://juju.is/docs/juju/set-up--tear-down-your-test-environment), {ref}`install-and-manage-terraform-provider-juju`, [`juju` | How to manage clouds](https://juju.is/docs/juju/manage-clouds), {ref}`manage-credentials`, [`juju` | How to manage controllers](https://juju.is/docs/juju/manage-controllers), {ref}`manage-models`, {ref}`manage-applications`
 
 
-## Maintain
 
-
-### Scale
+## Scale
 
 
 A database failure can be very costly. Let's scale it! 
@@ -394,21 +392,29 @@ ubuntu@my-juju-vm:~/terraform-juju$ terraform init && terraform plan && terrafor
 ubuntu@my-juju-vm:~/terraform-juju$ juju status --relations
 ```
 
-
+> See more: {ref}`scale-an-application`
 
 
 ## Tear down your test environment
 
 Follow the instructions for the `juju` CLI.
 
-> See more: [`juju` tutorial](...)
+> See more: [`juju` | Tutorial > Tear things down](https://juju.is/docs/juju/tutorial#tear-down-your-test-environment)
 
 In addition to that, on your host machine, delete your `terraform-provider-juju` directory.
 
 
+<!--
 ## Next steps
 
-TBA
+This tutorial has introduced you to all the basic things you can do with `terraform-provider-juju`. But there is a lot more to explore:
+
+| If you are wondering... | visit our...                             |
+|-------------------------|------------------------------------------|
+| "How do I...?"          | [How-to docs](../how-to/index)           |
+| "What is...?"           | [Reference docs](../reference/index)     |
+| "Why...?", "So what?"   | [Explanation docs](../explanation/index) |
+-->
 
 <br>
 

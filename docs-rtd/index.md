@@ -38,7 +38,7 @@ dolor sit amet consectetur adipiscing elit pellentesque habitant.
 
 ````{grid} 1 1 2 2
 
-```{grid-item-card} [Tutorial](tutorial/index)
+```{grid-item-card} [Tutorial](tutorial)
 :link: tutorial
 :link-type: doc
 

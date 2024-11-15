@@ -3,7 +3,7 @@
 
 ## Install `terraform-provider-juju`
 
-To install `terraform-provider-juju` on Linux, macOS, or Windows, you need to install the `terraform` CLI. For that, please follow the upstream instructions.
+To install `terraform-provider-juju` on Linux, macOS, or Windows, you need to install the `terraform` CLI. 
 
 > See more: [Hashicorp | Install Terraform](https://developer.hashicorp.com/terraform/install)
 
@@ -13,7 +13,7 @@ For example, on a Linux that supports snaps:
 sudo snap install terraform
 ```
 
-
+(use-terraform-provider-juju)=
 ## Use `terraform-provider-juju`
 
 
@@ -21,7 +21,7 @@ Once you've installed the `terraform` CLI, to start using it:
 
 1. **Require the `juju` provider.** In your Terraform plan, under `required_providers`, specify the `juju` provider:
 
-```text
+```terraform
 terraform {
   required_providers {
     juju = {
@@ -41,12 +41,12 @@ For all methods: To view your controller's details, run `juju show-controller --
 ```
 
 
-```{dropdown} Configure the provider using static credentials
+````{dropdown} Configure the provider using static credentials
 
 
 In your Terraform plan, in your provider specification, use the various keywords to provide your controller information statically:
 
-```text
+```terraform
 provider "juju" {
    controller_addresses = "10.225.205.241:17070,10.225.205.242:17070"
    username = "jujuuser"
@@ -58,37 +58,35 @@ provider "juju" {
 > See more: [Terraform | `juju` provider](https://registry.terraform.io/providers/juju/juju/latest/docs)
 
 
-```
+````
 
 
-```{dropdown} Configure the provider using environment variables
+````{dropdown} Configure the provider using environment variables
 
 
 In your Terraform plan, leave the `provider` specification empty:
 
-```text
+```terraform
 provider "juju" {}
 ``` 
 
 Then, in a terminal, export the controller environment variables with your controller's values. For example:
 
-```text
+```terraform
 export JUJU_CONTROLLER_ADDRESSES = "10.225.205.241:17070,10.225.205.242:17070" 
 export JUJU_USERNAME="jujuuser"
 export JUJU_PASSWORD="password1"
 export JUJU_CA_CERT= file("~/ca-cert.pem")
 ```
 
-```
+````
 
 
-
-```{dropdown} Configure the provider using the `juju` client
-
+````{dropdown} Configure the provider using the juju CLI
 
 In your Terraform plan, leave the `provider` specification empty:
 
-```text
+```terraform
 provider "juju" {}
 
 ```
@@ -96,13 +94,11 @@ provider "juju" {}
 Then, in a terminal, use the `juju` client to switch to the desired controller: `juju switch <controller>`. Your Terraform plan will be interpreted relative to that controller.
 
 
-```
+````
 
-3. Use the `terraform-provider-juju`  reference and the Juju how-to guides to build up your deployment.
+3. Build your deployment.
 
-> See more: 
-> - [Terraform Juju](https://registry.terraform.io/providers/juju/juju/latest/docs) 
-> - {ref}`Juju | How-to guides <juju-how-to-guides>`
+> See more: [How-to guides](../howto/index)
 
 4. Once you're done, in a terminal, run:
 
@@ -118,7 +114,7 @@ Then, in a terminal, use the `juju` client to switch to the desired controller: 
 
 To upgrade `terraform-provider-juju`, in your Terraform plan update the version constraint, then run `terraform init` with the `--upgrade` flag.
 
-> See more: [Terraform | Version constraints](https://developer.hashicorp.com/terraform/language/providers/requirements#version-constraints), [`terraform init --upgrade`](https://developer.hashicorp.com/terraform/cli/commands/init#upgrade-1)
+> See more: Terraform [Version constraints](https://developer.hashicorp.com/terraform/language/providers/requirements#version-constraints), [`terraform init --upgrade`](https://developer.hashicorp.com/terraform/cli/commands/init#upgrade-1)
 
 
 

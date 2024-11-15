@@ -1,10 +1,12 @@
 (howtos)=
 # How-to guides
 
+
+
 ```{toctree}
 :maxdepth: 2
 
-Install and manage the Terraform Provider for Juju <install-and-manage-terraform-provider-juju>
+Install and manage `terraform-provider-juju` <install-and-manage-terraform-provider-juju>
 Manage credentials <manage-credentials>
 Manage models <manage-models>
 Manage charms <manage-charms>

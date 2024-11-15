@@ -1,7 +1,7 @@
 (manage-charm-resources)=
 # How to manage charm resources
 
-> See also: [Resource (charm)](/t/11312)
+> See also: [`juju` | Resource (charm)](https://juju.is/docs/juju/charm-resource)
 
 When you deploy / update an application from a charm, that automatically deploys / updates any charm resources, using the defaults specified by the charm author. However, you can also specify resources manually (e.g., to try a resource released only to `edge` or to specify a non-Charmhub resource). This document shows you how.
 
@@ -10,7 +10,7 @@ When you deploy / update an application from a charm, that automatically deploys
 
 To specify the resource(s) to be deployed with your charm, in your Terraform plan, in the definition of the resource for the application specify a `resources` block with key-value pairs listing resource names and their revision number. For example:
 
-```text
+```terraform
 resource "juju_application" "application_one" {
   name = "my-application"
   model = juju_model.testmodel.name
@@ -26,13 +26,15 @@ resource "juju_application" "application_one" {
 ```
 
 
-[note type=information]
+```{tip}
+
 About `charm > revision` and `resources`:
 - If you specify only `charm > revision`: This is equivalent to `juju deploy <charm> --revision` or `juju refresh <charm> --revision` -- that is, the resource revision is automatically the latest.
 - If you specify only `resources`: This is equivalent to `juju attach-resource` -- that is, the resource revision is whatever you've specified.
 
 **Note:** While `juju refresh <charm> --resource` allows you to update a resource even if no update is available for the charm, this is not possible with `terraform juju`.
-[/note]
+
+```
 
 > See more: [`juju_application > resources`](https://registry.terraform.io/providers/juju/juju/latest/docs/resources/application#resources)
 
