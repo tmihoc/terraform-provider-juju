@@ -1,4 +1,4 @@
-# Starter pack
+# Terraform Provider for Juju (`terraform-provider-juju`)
 
 ```{toctree}
 :maxdepth: 2
@@ -13,24 +13,13 @@ reference/index
 explanation/index
 -->
 
-**A single sentence that says what the product is, succinctly and memorably.**
-Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-dolore magna aliqua.
+The Terraform Provider for Juju (henceforth, `terraform-provider-juju`) is a [Terraform Provider](https://developer.hashicorp.com/terraform/language/providers) that extends [Terraform](https://developer.hashicorp.com/terraform) with [Juju](https://juju.is) functionality.
 
-**A paragraph of one to three short sentences, that describe what the product
-does.** Urna cursus eget nunc scelerisque viverra mauris in. Nibh mauris
-cursus mattis molestie a iaculis at vestibulum rhoncus est pellentesque
-elit. Diam phasellus vestibulum lorem sed.
+When you're putting together your Terraform plan, if you specify `juju` as the provider, you can connect to a pre-existing Juju controller (created with the [`juju` CLI](https://juju.is/docs/juju/juju-client)) and then go ahead and use it to do Juju things -- easy deploy, configure, integrate, scale, etc., applications on any Juju-supported cloud (Kubernetes or otherwise) using [charms](https://juju.is/docs/juju/charmed-operator).
 
-**A third paragraph of similar length, this time explaining what need the
-product meets.** Dui ut ornare lectus sit amet est. Nunc sed augue lacus
-viverra vitae congue eu consequat ac libero id faucibus nisl tincidunt eget
-nullam.
+`terraform-provider-juju` combines the power of Terraform -- comprehensive infrastructure management, declaratively -- with the power of Juju -- easy systems management, from Day 0 to Day n.
 
-**Finally, a paragraph that describes whom the product is useful for.** Nunc
-non blandit massa enim nec dui nunc mattis enim. Ornare arcu odio ut sem
-nulla pharetra diam porttitor leo a diam sollicitudin tempor id eu. Ipsum
-dolor sit amet consectetur adipiscing elit pellentesque habitant.
+Like all of Juju, `terraform-provider-juju` is for SREs, or anyone looking to take control of cloud. 
 
 ---------
 
@@ -85,14 +74,14 @@ Example Project is a member of the Ubuntu family. It’s an open source project 
 * **[Read our code of conduct](https://ubuntu.com/community/ethos/code-of-conduct)**:
 As a community we adhere to the Ubuntu code of conduct.
 
-* **[Get support](https://askubuntu.com/)**:
-Ask Ubuntu is a question and answer site for Ubuntu users and developers.
+* **[Get support](https://discourse.charmhub.io/)**:
+Discourse is the go-to forum for all questions Juju.
 
-* **[Join our online chat](https://web.libera.chat/gamja/?channels=%23channel)**:
-Meet us in `#channel` on IRC Libera.Chat.
+* **[Join our online chat](https://matrix.to/#/#terraform-provider-juju:ubuntu.com)**:
+Meet us in the `#terraform-provider-juju` channel on Matrix.
 
-* **[Report bugs](https://github.com/canonical/repo/issues/new)**:
+* **[Report bugs](https://github.com/juju/terraform-provider-juju/issues/new?title=doc%3A+ADD+A+TITLE&body=DESCRIBE+THE+ISSUE%0A%0A---%0ADocument:%20index.md)**:
 We want to know about the problems so we can fix them.
 
-* **[Contribute docs](https://github.com/canonical/repo)**:
+* **[Contribute docs](https://github.com/juju/terraform-provider-juju/tree/main/docs)**:
 The documentation sources on GitHub.
