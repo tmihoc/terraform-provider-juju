@@ -1,9 +1,9 @@
-(how-to-install-and-manage-`terraform-juju`)=
-# How to install and manage `terraform-juju`
+(install-and-manage-terraform-provider-juju)=
+# How to install and manage `terraform-provider-juju`
 
-## Install `terraform-juju`
+## Install `terraform-provider-juju`
 
-To install `terraform-juju` on Linux, macOS, or Windows, you need to install the `terraform` CLI. For that, please follow the upstream instructions.
+To install `terraform-provider-juju` on Linux, macOS, or Windows, you need to install the `terraform` CLI. For that, please follow the upstream instructions.
 
 > See more: [Hashicorp | Install Terraform](https://developer.hashicorp.com/terraform/install)
 
@@ -14,7 +14,7 @@ sudo snap install terraform
 ```
 
 
-## Use `terraform-juju`
+## Use `terraform-provider-juju`
 
 
 Once you've installed the `terraform` CLI, to start using it:
@@ -55,7 +55,7 @@ provider "juju" {
 }
 ```
 
-> See [Terraform | `juju` provider](https://registry.terraform.io/providers/juju/juju/latest/docs)
+> See more: [Terraform | `juju` provider](https://registry.terraform.io/providers/juju/juju/latest/docs)
 
 
 ```
@@ -98,9 +98,7 @@ Then, in a terminal, use the `juju` client to switch to the desired controller: 
 
 ```
 
-
-
-3. Use the `terraform juju` client reference and the Juju how-to guides to build up your deployment.
+3. Use the `terraform-provider-juju`  reference and the Juju how-to guides to build up your deployment.
 
 > See more: 
 > - [Terraform Juju](https://registry.terraform.io/providers/juju/juju/latest/docs) 
@@ -116,9 +114,9 @@ Then, in a terminal, use the `juju` client to switch to the desired controller: 
 
 
 
-## Upgrade `terraform-juju`
+## Upgrade `terraform-provider-juju`
 
-To upgrade `terraform-juju`, in your Terraform plan update the version constraint, then run `terraform init` with the `--upgrade` flag.
+To upgrade `terraform-provider-juju`, in your Terraform plan update the version constraint, then run `terraform init` with the `--upgrade` flag.
 
 > See more: [Terraform | Version constraints](https://developer.hashicorp.com/terraform/language/providers/requirements#version-constraints), [`terraform init --upgrade`](https://developer.hashicorp.com/terraform/cli/commands/init#upgrade-1)
 
