@@ -3,9 +3,14 @@ name: Main Documentation Checks
 on:
   push:
     branches: [main]
+    paths:
+      - 'docs-rtd/**'
   pull_request:
-  # Manual trigger
+    paths:
+      - 'docs-rtd/**'
   workflow_dispatch:
+    paths:
+      - 'docs-rtd/**'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,4 +20,4 @@ jobs:
   documentation-checks:
     uses: canonical/documentation-workflows/.github/workflows/documentation-checks.yaml@main
     with:
-      working-directory: "."
+      working-directory: "docs-rtd"
