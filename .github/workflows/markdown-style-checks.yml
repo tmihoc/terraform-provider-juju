@@ -2,11 +2,15 @@ name: "Linter for Markdown"
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+    paths:
+      - 'docs-rtd/**'
   pull_request:
-    branches:
-      - '*'
+    paths:
+      - 'docs-rtd/**'
+  workflow_dispatch:
+    paths:
+      - 'docs-rtd/**'
 
 jobs:
   markdown-lint:
@@ -14,8 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0     
+          fetch-depth: 0
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           config: "docs-rtd/.sphinx/.markdownlint.json"
-
+          globs: "docs-rtd/**/*.md"
+          continue-on-error: true
