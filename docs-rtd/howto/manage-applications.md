@@ -42,7 +42,7 @@ resource "juju_application" "this" {
 ## Configure an application
 > See also: [`juju` | Application configuration](https://juju.is/docs/juju/configuration#heading--application-configuration)
 
-To configure an application, in its resource definition add a config map with the key=value pairs you want (from the list of configs available for the charm). 
+To configure an application, in its resource definition add a configuration map with the `key=value` pairs you want (from the list of configurations available for the charm).
 
 ```terraform
 resource "juju_application" "this" {
