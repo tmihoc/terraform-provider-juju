@@ -83,8 +83,7 @@ ogp_site_name = project
 #
 # TODO: To customise the preview image, update as needed.
 
-ogp_image = \
-    "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
+ogp_image = "https://assets.ubuntu.com/v1/253da317-image-document-ubuntudocs.svg"
 
 
 # Product favicon; shown in bookmarks, browser tabs, etc.
@@ -207,8 +206,9 @@ linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 # NOTE: By default, the following MyST extensions are enabled:
 #       substitution, deflist, linkify
 
-# myst_enable_extensions = set()
-
+myst_enable_extensions = {
+    'colon_fence',
+}
 
 # Custom Sphinx extensions; see
 # https://www.sphinx-doc.org/en/master/usage/extensions/index.html
@@ -231,7 +231,6 @@ linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 extensions = [
     "canonical_sphinx",
     "sphinxcontrib.cairosvgconverter",
-    'sphinx_design',
 ]
 
 

@@ -5,23 +5,25 @@
 
 
 ## Create an offer
+
 > Who: User with [offer `admin` access](https://juju.is/docs/juju/user-permissions#heading--offer-admin).
 
 To create an offer, in your Terraform plan, create a resource of the `juju_offer` type, specifying the offering model and the name of the application and application endpoint from which the offer is created:
 
 ```terraform
-
 resource "juju_offer" "percona-cluster" {
   model            = juju_model.development.name
   application_name = juju_application.percona-cluster.name
-  endpoint         = server
+  endpoint         = "server"
 }
-
 ```
+
 > See more: [`juju_offer` (resource)](https://registry.terraform.io/providers/juju/juju/latest/docs/resources/offer)
+
 
 (integrate-with-an-offer)=
 ## Integrate with an offer
+
 > Who: User with [offer `consume` access](https://juju.is/docs/juju/user-permissions#heading--offer-consume).
 
 To integrate with an offer, in your Terraform plan create a `juju_integration` resource as usual by specifying two application blocks and a `lifecycle > replace_triggered_by` block, but for the application representing the offer specify the `offer_url`, and in the `lifecycle` block list triggers only for the regular application (not the offer). For example:
@@ -39,7 +41,7 @@ resource "juju_integration" "wordpress-db" {
     offer_url = juju_offer.this.url
   }
 
-lifecycle {
+  lifecycle {
     replace_triggered_by = [
       juju_application.wordpress.name,
       juju_application.wordpress.model,

@@ -44,7 +44,7 @@ resource "juju_model" "this" {
     region = "eu-west-1"
   }
 
-  credential = juju_credential.<credential label>.name
+  credential = "juju_credential.<credential label>.name"
 }
 ```
 
